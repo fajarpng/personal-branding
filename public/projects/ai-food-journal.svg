@@ -1,0 +1,11 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' font-family='Arial,Helvetica,sans-serif'>
+<rect width='1600' height='1000' fill='#8b5cf6'/>
+<circle cx='520' cy='500' r='330' fill='#fffdf5' stroke='#1e293b' stroke-width='12'/><circle cx='520' cy='500' r='230' fill='#fbbf24' stroke='#1e293b' stroke-width='10'/><circle cx='520' cy='500' r='110' fill='#f472b6' stroke='#1e293b' stroke-width='10'/>
+<rect x='150' y='130' width='320' height='80' fill='#34d399' stroke='#1e293b' stroke-width='8'/><text x='310' y='185' font-size='34' font-weight='800' text-anchor='middle' fill='#1e293b'>Salmon · Rice · Greens</text>
+<rect x='980' y='140' width='520' height='170' rx='28' fill='#fffdf5' stroke='#1e293b' stroke-width='8'/><text x='1010' y='210' font-size='36' font-weight='700' fill='#1e293b'>Looks like ~420 kcal.</text><text x='1010' y='265' font-size='36' font-weight='700' fill='#1e293b'>Want to log it?</text>
+<rect x='980' y='380' width='160' height='100' fill='#34d399' stroke='#1e293b' stroke-width='8'/><text x='1060' y='445' font-size='36' font-weight='800' text-anchor='middle' fill='#1e293b'>P 24g</text>
+<rect x='1160' y='380' width='160' height='100' fill='#f472b6' stroke='#1e293b' stroke-width='8'/><text x='1240' y='445' font-size='36' font-weight='800' text-anchor='middle' fill='#1e293b'>C 52g</text>
+<rect x='1340' y='380' width='160' height='100' fill='#fbbf24' stroke='#1e293b' stroke-width='8'/><text x='1420' y='445' font-size='36' font-weight='800' text-anchor='middle' fill='#1e293b'>F 11g</text>
+<rect x='980' y='560' width='520' height='200' fill='#fffdf5' stroke='#1e293b' stroke-width='8'/><g fill='#1e293b'><rect x='1020' y='590' width='10' height='140'/><rect x='1045' y='590' width='24' height='140'/><rect x='1085' y='590' width='10' height='140'/><rect x='1110' y='590' width='16' height='140'/><rect x='1145' y='590' width='30' height='140'/><rect x='1190' y='590' width='10' height='140'/><rect x='1215' y='590' width='20' height='140'/><rect x='1255' y='590' width='12' height='140'/><rect x='1285' y='590' width='28' height='140'/></g>
+<rect x='520' y='930' width='560' height='46' fill='#1e293b'/><text x='800' y='961' font-size='22' font-weight='700' fill='#fff' text-anchor='middle'>PLACEHOLDER — replace public/projects/ai-food-journal.svg</text>
+</svg>

@@ -1,0 +1,156 @@
+/* Theme 2 effects. Every selector is under .t2 so Theme 1 is never affected. */
+.t2 {
+  background: var(--color-t2-paper);
+  color: var(--color-t2-ink);
+  font-family: var(--font-t2-sans), system-ui, sans-serif;
+  position: relative;
+}
+
+.t2 ::selection {
+  background: var(--color-t2-cyan);
+  color: var(--color-t2-ink);
+}
+
+.t2 :focus-visible {
+  outline: 2px solid var(--color-t2-magenta);
+  outline-offset: 3px;
+}
+
+html:has(.t2) {
+  scroll-padding-top: 3.5rem;
+}
+
+/* static paper grain, one cheap fixed layer */
+.t2::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .7 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.t2 .t2-grid {
+  background-image:
+    linear-gradient(var(--color-t2-rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-t2-rule) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.25;
+}
+
+.t2 .t2-halftone {
+  background: radial-gradient(circle, var(--color-t2-ink) 1.3px, transparent 1.7px) 0 0 / 8px 8px;
+  mask-image: linear-gradient(to bottom, #000, transparent);
+}
+
+.t2 .t2-dropcap::first-letter {
+  float: left;
+  font-family: var(--font-t2-playfair), Georgia, serif;
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 0.8;
+  padding: 0.35rem 0.6rem 0 0;
+}
+
+.t2 .t2-dark-grid {
+  background-image:
+    linear-gradient(rgb(243 239 229 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(243 239 229 / 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* decorative motion only when the user has not asked for less */
+@media (prefers-reduced-motion: no-preference) {
+  .t2 .t2-scan {
+    animation: t2-scan 9s linear infinite;
+  }
+
+  .t2 .t2-scroll-line::after {
+    animation: t2-drop 2.2s ease-in-out infinite;
+  }
+
+  .t2 .t2-glitch::before,
+  .t2 .t2-glitch::after {
+    animation: t2-glitch 7s steps(1) infinite;
+  }
+}
+
+.t2 .t2-scroll-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.t2 .t2-scroll-line::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 40%;
+  background: var(--color-t2-cyan);
+}
+
+/* chromatic shift: two offset copies of the text, only visible during the short glitch window */
+.t2 .t2-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.t2 .t2-glitch::before,
+.t2 .t2-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.t2 .t2-glitch::before {
+  color: var(--color-t2-magenta);
+}
+
+.t2 .t2-glitch::after {
+  color: var(--color-t2-cyan);
+}
+
+@keyframes t2-scan {
+  from {
+    transform: translateY(-5vh);
+  }
+  to {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes t2-drop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(260%);
+  }
+}
+
+@keyframes t2-glitch {
+  0%,
+  92%,
+  100% {
+    opacity: 0;
+    transform: none;
+  }
+  93% {
+    opacity: 0.9;
+    transform: translate(-4px, 1px);
+    clip-path: inset(10% 0 55% 0);
+  }
+  95% {
+    opacity: 0.9;
+    transform: translate(4px, -1px);
+    clip-path: inset(55% 0 10% 0);
+  }
+  97% {
+    opacity: 0.9;
+    transform: translate(-2px, 0);
+    clip-path: inset(30% 0 30% 0);
+  }
+}

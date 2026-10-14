@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fffdf5;
+  --color-ink: #1e293b;
+  --color-muted: #f1f5f9;
+  --color-violet: #8b5cf6;
+  --color-pink: #f472b6;
+  --color-sun: #fbbf24;
+  --color-mint: #34d399;
+
+  --shadow-hard: var(--so) var(--so) 0 0 var(--color-ink);
+  --shadow-hard-lg: calc(var(--so) * 1.6) calc(var(--so) * 1.6) 0 0 var(--color-ink);
+  --shadow-hard-sm: calc(var(--so) * 0.5) calc(var(--so) * 0.5) 0 0 var(--color-ink);
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-display: var(--font-outfit), system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+}
+
+/* hard-shadow offset shrinks on small screens */
+:root {
+  --so: 4px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --so: 6px;
+  }
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-violet);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-sun);
+  color: var(--color-ink);
+}
+
+/* memphis dotted pattern */
+.bg-dots {
+  background-image: radial-gradient(var(--color-ink) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+/* Theme 2 tokens: t2- prefixed and additive, Theme 1 never references them */
+@theme {
+  --color-t2-paper: #f3efe5;
+  --color-t2-paper-hi: #faf8f1;
+  --color-t2-ink: #191a19;
+  --color-t2-muted: #77756f;
+  --color-t2-rule: #a7a196;
+  --color-t2-cyan: #00e5ff;
+  --color-t2-magenta: #ff3cac;
+  --color-t2-acid: #d7ff3f;
+  --color-t2-dark: #111315;
+}
+
+@theme inline {
+  --font-t2-serif: var(--font-t2-playfair), Georgia, serif;
+  --font-t2-sans: var(--font-t2-inter), system-ui, sans-serif;
+  --font-t2-mono: var(--font-t2-jetbrains), ui-monospace, monospace;
+}
